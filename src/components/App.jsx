@@ -4,22 +4,26 @@ import React from 'react';
 //import ContactList from './ContactList/ContactList';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchUrl } from 'redux/tasks/operations';
+//import { fetchUrl } from 'redux/tasks/operations';
 //import { getError, getLoading } from 'redux/tasks/selectors';
 import { RegisterForm } from './Register/Register';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { PhoneBook } from './PhoneBook/PhoneBook';
 import { LogInForm } from './LogIn/LogIn';
+import { refreshUser } from 'redux/auth/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
   // const isLoading = useSelector(getLoading);
   // const error = useSelector(getError);
-
-  useEffect(() => {
-    dispatch(fetchUrl());
-  }, [dispatch]);
+// const test = (value)=>{
+// console.log(test);
+// };
+  useEffect(()=>{
+    dispatch(refreshUser());
+  },[dispatch]);
+  //не отображаются изменения
 
   return (
     <div>
