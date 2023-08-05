@@ -12,6 +12,9 @@ import { Layout } from './Layout';
 import { PhoneBook } from './PhoneBook/PhoneBook';
 import { LogInForm } from './LogIn/LogIn';
 import { refreshUser } from 'redux/auth/operations';
+import { Home } from './Pages/Home/Home';
+import {PrivateRoute} from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -23,20 +26,28 @@ export const App = () => {
   useEffect(()=>{
     dispatch(refreshUser());
   },[dispatch]);
-  //не отображаются изменения
 
   return (
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<PhoneBook />} />
-          <Route path="/register" element={<RegisterForm />} />
-          <Route path="/logIn" element={<LogInForm />} />
-          <Route path="*" element={<PhoneBook />} />
+          <Route index element={<Home />} />
+          
+          <Route path="/register" element={
+          <RestrictedRoute redirectTo = '/phoneBook' component={<RegisterForm />}/>
+          } />
+          <Route path="/logIn" element={
+          <RestrictedRoute redirectTo = '/phoneBook' component={<LogInForm />}/>
+          } />
+          <Route path="/phoneBook" element={
+              <PrivateRoute redirectTo = '/logIn' component={<PhoneBook/>}/>
+              }/>
+          <Route path="*" element={<Home />} />       
         </Route>
+        
       </Routes>
     </div>
-
+      /* <Route path="/phoneBook" element={<PhoneBook />} /> */
     //   (
     //     <div
     //       style={{

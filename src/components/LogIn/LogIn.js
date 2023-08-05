@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
-import { css } from "styled-components";
+import css from "./LogIn.module.css"
 import { logIn } from "redux/auth/operations";
 
 export const LogInForm = () => {
@@ -21,9 +21,7 @@ export const LogInForm = () => {
             default: return;
         }
     };
-    // const send = () => {
-        
-    // }
+   
 
     const regiserSend = (e) => {
        e.preventDefault(); 
@@ -55,7 +53,7 @@ export const LogInForm = () => {
                         className={css.input}
                     />
                 </label>
-                <button type="submit" className={css.addBtn}>Add contact</button>
+                <button type="submit" className={css.addBtn}>Log In</button>
                       
             </form>     
 )

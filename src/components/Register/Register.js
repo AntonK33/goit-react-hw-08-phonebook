@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
-import { css } from "styled-components";
+import  css  from "./Register.module.css";
 import { register } from "redux/auth/operations";
 
 export const RegisterForm = () => {
@@ -74,7 +74,7 @@ export const RegisterForm = () => {
                         className={css.input}
                     />
                 </label>
-                <button type="submit" className={css.addBtn}>Add contact</button>
+                <button type="submit" className={css.addBtn}>Register</button>
                       
             </form>     
 )

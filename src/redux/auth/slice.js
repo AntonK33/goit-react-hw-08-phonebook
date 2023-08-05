@@ -31,6 +31,7 @@ const authSlice = createSlice({
         [refreshUser.fulfilled](state,actyon){
             state.user = actyon.payload;
             state.isLoggedIn = true;
+            state.isRefreshing = false;
         }
     }
 
