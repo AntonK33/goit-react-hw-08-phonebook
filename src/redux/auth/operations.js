@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Await } from "react-router-dom";
+
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 

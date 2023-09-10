@@ -1,4 +1,4 @@
-import ContactList from "components/ContactList/ContactList";
+import ContactList from "components/Pages/ContactList/ContactList";
 import Filter from "components/Filter/Filter";
 import { InputForm } from "components/InputForm/InputForm";
 import { getLoading, getError } from "redux/tasks/selectors";

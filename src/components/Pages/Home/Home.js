@@ -3,16 +3,16 @@
 //import { InputForm } from "components/InputForm/InputForm";
 //import { getLoading, getError } from "redux/tasks/selectors";
 //import { useSelector } from "react-redux";
-
+import  css  from "./Home.module.css";
 
 export const Home = () => {
      //const isLoading = useSelector(getLoading);
   //const error = useSelector(getError);
     return (
         <div>
-            <p>МНС 101</p>
-            <p>Поліція 102</p>
-            <p>Швидка допомога 103</p>
+            <p className={css.p_style}>МНС 101</p>
+            <p className={css.p_style}>Поліція 102</p>
+            <p className={css.p_style}>Швидка допомога 103</p>
             
           
         </div>
