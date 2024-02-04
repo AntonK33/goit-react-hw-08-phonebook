@@ -2,10 +2,7 @@ import React from 'react';
 import css from './Filter.module.css';
 import { useDispatch } from 'react-redux';
 import { filterContact } from 'redux/tasks/filterSlise';
-import { Box, Text, Input, FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
+import { Box, Text, Input, FormLabel,
 } from "@chakra-ui/react";
   
 const Filter = () => {
