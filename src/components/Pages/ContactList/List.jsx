@@ -2,7 +2,9 @@ import React from 'react';
 import css from './ContactList.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/tasks/operations';
-
+import { Button, Text, Box
+} from "@chakra-ui/react";
+  
 export const List = ({ contact }) => {
   const dispatch = useDispatch();
 
@@ -11,18 +13,24 @@ export const List = ({ contact }) => {
   };
 
   return (
-    <li key={contact.id} className={css.filter_item}>
-      <p className={css.filter_p}>
+    <Box >
+      <li key={contact.id} className={css.filter_item}>
+      <Text
+         color="gray"
+        // className={css.filter_p}
+      >
         {contact.name}: {contact.number}
-      </p>
-      <button
+      </Text>
+      <Button
         onClick={() => {
           del(contact.id);
         }}
         className={css.deleteContactBtn}
       >
         Delete
-      </button>
+      </Button>
     </li>
+    </Box>
+    
   );
 };

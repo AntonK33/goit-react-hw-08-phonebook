@@ -15,6 +15,8 @@ import { refreshUser } from 'redux/auth/operations';
 import { Home } from './Pages/Home/Home';
 import {PrivateRoute} from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -28,7 +30,9 @@ export const App = () => {
   },[dispatch]);
 
   return (
-    <div>
+
+     <ChakraProvider>
+      <div>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -47,6 +51,8 @@ export const App = () => {
         
       </Routes>
     </div>
+    </ChakraProvider>
+   
       /* <Route path="/phoneBook" element={<PhoneBook />} /> */
     //   (
     //     <div

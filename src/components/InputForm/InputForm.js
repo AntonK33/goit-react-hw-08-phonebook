@@ -5,6 +5,9 @@ import { useDispatch } from "react-redux";
 import { addContacts } from "redux/tasks/operations";
 import { useSelector } from "react-redux";
 import { getContacts } from "redux/tasks/selectors";
+import { Button, Text, Input, FormControl,
+  FormLabel,} from "@chakra-ui/react";
+import { Form, Formik } from 'formik';
 
 export const InputForm = () => {
     const dispatch = useDispatch();
@@ -58,37 +61,77 @@ export const InputForm = () => {
         setName('');
         setNumber('');
     }
+
+
         return (
-            <form
-                className={css.form}
-                onSubmit={submitForm}>
-                <label htmlFor='name' className={css.label_form}>
-                    <span>Name</span>
-                    <input
+            <Formik>
+                <Form onSubmit={submitForm}>
+                <FormControl borderRadius="10" p= '5' border='2px' borderColor='gray.200'
+                boxShadow='dark-lg' px='6' rounded='md' bg='white'
+                >
+                
+                    <FormLabel htmlFor='name'
+                       // className={css.label_form}
+                    >
+                    <Text
+                        
+                        backgroundColor='#666'
+                        bgClip="text"
+                        fontSize="2xl"
+                        fontWeight="extrabold">
+                        Name
+                    </Text>
+                    <Input
+                        variant='outline' 
+                         placeholder='Name' size='md'
                         onChange={onInputHandler}
                         value={name}
                         type="text"
                         name="name"
                         //pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                        required
-                        className={css.input}
+                            required
+                            
+                        //className={css.input}
                     />
-                </label>
-                <label htmlFor='number' className={css.label_form}>
-                    <span>Number</span>
-                    <input
+                </FormLabel>
+                <FormLabel htmlFor='number' className={css.label_form}>
+                    <Text
+                        backgroundColor='#666'
+                        bgClip="text"
+                        fontSize="2xl"
+                        fontWeight="extrabold">
+                        Number
+                    </Text>
+                    
+                    <Input
+                        placeholder='Number' size='md'
+                        type="tel" 
                         onChange={onInputHandler}
-                        type="tel"
+                        
                         name="number"
                         value={number}
-                        className={css.input}
+                        //className={css.input}
                     />
-                </label>
+                </FormLabel>
                 
-                <button type="submit" className={css.addBtn}>Add contact</button>
-                      
-            </form>        
+                <Button
+                    type="submit" borderColor='#666' variant="outline"
+                >
+                    <Text 
+                        
+                        backgroundColor='#666'
+                        bgClip="text"
+                        fontSize="2xl"
+                        fontWeight="extrabold"
+                    >
+                        Add contact
+                    </Text>
+                </Button> 
+            </FormControl>   
+                </Form>
+            </Formik>
+    
         ) 
     }; 
     
