@@ -8,6 +8,7 @@ import { getContacts } from "redux/tasks/selectors";
 import { Button, Text, Input, FormControl,
   FormLabel,} from "@chakra-ui/react";
 import { Form, Formik } from 'formik';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export const InputForm = () => {
     const dispatch = useDispatch();
@@ -51,10 +52,10 @@ export const InputForm = () => {
             } else {
                 
 
-            dispatch(addContacts({name, number}));
-                
+            dispatch(addContacts({name, number},resetInput(),NotificationManager.success('Success message', 'Title here')));
+              
             }
-            resetInput();
+        
         }
 
     const resetInput = () => {
@@ -63,7 +64,8 @@ export const InputForm = () => {
     }
 
 
-        return (
+    return (
+            <>
             <Formik>
                 <Form onSubmit={submitForm}>
                 <FormControl borderRadius="10" p= '5' border='2px' borderColor='gray.200'
@@ -127,11 +129,17 @@ export const InputForm = () => {
                     >
                         Add contact
                     </Text>
-                </Button> 
+                        </Button> 
+                        
             </FormControl>   
                 </Form>
             </Formik>
-    
+             <>
+                 <NotificationContainer/>
+            </>
+            </>
+            
+   
         ) 
     }; 
     
