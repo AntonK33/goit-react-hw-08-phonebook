@@ -25,10 +25,7 @@ export const RegisterForm = () => {
             default: return;
         }
     };
-    // const send = () => {
-        
-    // }
-
+    
     const regiserSend = (e) => {
        e.preventDefault(); 
         dispatch(register({ name, email, password }));
