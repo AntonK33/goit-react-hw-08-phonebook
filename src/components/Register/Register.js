@@ -2,7 +2,9 @@ import { useState } from "react"
 import { useDispatch } from "react-redux";
 import  css  from "./Register.module.css";
 import { register } from "redux/auth/operations";
-
+import { Button, Text, Input,
+} from "@chakra-ui/react";
+  
 export const RegisterForm = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
@@ -39,8 +41,17 @@ export const RegisterForm = () => {
                className={css.form}
                 onSubmit={regiserSend}>
                 <label htmlFor='name' className={css.label_form}>
-                    <span>Name</span>
-                    <input
+                   <Text
+                        
+                        backgroundColor='#666'
+                        bgClip="text"
+                        fontSize="2xl"
+                        fontWeight="extrabold">
+                        Name
+                    </Text>
+                <Input
+                     variant='outline' 
+                         placeholder='Name' size='md'
                         onChange={onInputHandler}
                         value={name}
                         type="text"
@@ -48,30 +59,45 @@ export const RegisterForm = () => {
                         //pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
-                        className={css.input}
+                        //className={css.input}
                     />
                 </label>
                 <label htmlFor='Email' className={css.label_form}>
-                    <span>Email</span>
-                    <input
+                <Text
+                        backgroundColor='#666'
+                        bgClip="text"
+                        fontSize="2xl"
+                        fontWeight="extrabold">
+                        Email
+                    </Text>
+                <Input
+                    placeholder='Email' size='md'
                         onChange={onInputHandler}
                         type="email"
                         name="email"
                         value={email}
-                        className={css.input}
+                        //className={css.input}
                     />
                 </label>
                 <label htmlFor='Password' className={css.label_form}>
-                    <span>Password</span>
-                    <input
+                
+                 <Text
+                        backgroundColor='#666'
+                        bgClip="text"
+                        fontSize="2xl"
+                        fontWeight="extrabold">
+                        Password
+                    </Text>
+                <Input
+                    placeholder='Password' size='md'
                         onChange={onInputHandler}
                         type="password"
                         name="password"
                         value={password}
-                        className={css.input}
+                        //className={css.input}
                     />
                 </label>
-                <button type="submit" className={css.addBtn}>Register</button>
+                <Button  type="submit" borderColor='#666' variant="outline">Register</Button>
                       
             </form>     
 )

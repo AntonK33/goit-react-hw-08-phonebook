@@ -35,18 +35,24 @@ export const App = () => {
       <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home />}/>
           
-          <Route path="/register" element={
+            <Route
+              path="/register"
+              element={
           <RestrictedRoute redirectTo = '/phoneBook' component={<RegisterForm />}/>
           } />
-          <Route path="/logIn" element={
+            <Route
+              path="/logIn"
+              element={
           <RestrictedRoute redirectTo = '/phoneBook' component={<LogInForm />}/>
           } />
-          <Route path="/phoneBook" element={
+            <Route
+              path="/phoneBook"
+              element={
               <PrivateRoute redirectTo = '/logIn' component={<PhoneBook/>}/>
               }/>
-          <Route path="*" element={<Home />} />       
+          {/* <Route path="*" element={<Home />}/>        */}
         </Route>
         
       </Routes>
