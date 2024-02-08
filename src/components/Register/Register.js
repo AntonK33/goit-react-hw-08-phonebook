@@ -4,7 +4,9 @@ import  css  from "./Register.module.css";
 import { register } from "redux/auth/operations";
 import { Button, Text, Input,
 } from "@chakra-ui/react";
-  
+import { NotificationContainer, NotificationManager } from "react-notifications";
+import 'react-notifications/lib/notifications.css';
+
 export const RegisterForm = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
@@ -30,11 +32,16 @@ export const RegisterForm = () => {
     
     const regiserSend = (e) => {
        e.preventDefault(); 
-        dispatch(register({ name, email, password }));
-        setName('');
-        setEmail('');
-        setPassword('');
-
+        dispatch(register({ name, email, password }))
+        // setName('');
+        // setEmail('');
+        // setPassword('')
+         .then(() => {
+        NotificationManager.succes('Check your entry');;
+      })
+      .catch(error => {
+        NotificationManager.error(`Incorrect login or password`);
+      });
     }
     return (
       <form
@@ -97,8 +104,8 @@ export const RegisterForm = () => {
                         //className={css.input}
                     />
                 </label>
-                <Button  type="submit" borderColor='#666' variant="outline">Register</Button>
-                      
+                <Button mt="5"  type="submit" borderColor='#666' variant="outline">Register</Button>
+                   <NotificationContainer/>   
             </form>     
 )
 

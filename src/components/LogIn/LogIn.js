@@ -4,12 +4,16 @@ import css from "./LogIn.module.css"
 import { logIn } from "redux/auth/operations";
 import { Button, Text, Input,
 } from "@chakra-ui/react";
+import { selectIsLoggedIn } from "redux/auth/selectors";
+import { useSelector } from "react-redux";
+import { NotificationContainer, NotificationManager } from "react-notifications";
+import 'react-notifications/lib/notifications.css';
 
 export const LogInForm = () => {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
+    const isLoading = useSelector(selectIsLoggedIn);
 
      const onInputHandler = (event) => {
         const { name, value } = event.target;
@@ -27,10 +31,15 @@ export const LogInForm = () => {
 
     const regiserSend = (e) => {
        e.preventDefault(); 
-        dispatch(logIn({ email, password }));
-        setEmail('');
-        setPassword('');
+        dispatch(logIn({ email, password }))
+        .then(() => {
+        NotificationManager.succes('Check your entry');;
+      })
+      .catch(error => {
+        NotificationManager.error(`Incorrect login or password`);
+      });
     }
+
     return (
       <form
                className={css.form}
@@ -80,7 +89,7 @@ export const LogInForm = () => {
                     >Log In</Text>
                 
             </Button>
-                      
+                    <NotificationContainer/>  
             </form>     
 )
 

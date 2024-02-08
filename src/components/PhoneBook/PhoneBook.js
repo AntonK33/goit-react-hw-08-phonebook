@@ -11,14 +11,14 @@ export const PhoneBook = () => {
     const dispatch = useDispatch();
     useEffect(()=>{ dispatch(fetchUrl())
     },[dispatch])
-     const isLoading = useSelector(getLoading);
-  const error = useSelector(getError);
+//      const isLoading = useSelector(getLoading);
+//   const error = useSelector(getError);
     return (
         <div>
              <InputForm />
         <Filter />
-        {isLoading && <b>Reqwest in process...</b>}
-        {error && <b>Failed reqwest </b>}
+        {/* {isLoading && <b>Reqwest in process...</b>}
+        {error && <b>Failed reqwest </b>} */}
         <ContactList/>
         </div>
        

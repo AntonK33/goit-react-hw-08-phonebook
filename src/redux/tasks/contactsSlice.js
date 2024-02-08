@@ -8,7 +8,8 @@ const pendingReqest = state => {
 const rejectReqest = (state, action) => {
     state.isLoading = false;
     state.error = action.payload;
-}
+};
+
 let contacts = {
     items: [],
     isLoading: false,
