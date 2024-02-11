@@ -16,7 +16,7 @@ import { Home } from './Pages/Home/Home';
 import {PrivateRoute} from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { ChakraProvider } from '@chakra-ui/react'
-
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -51,7 +51,8 @@ export const App = () => {
               path="/phoneBook"
               element={
               <PrivateRoute redirectTo = '/logIn' component={<PhoneBook/>}/>
-              }/>
+              } />
+             <Route path="*" element={<NotFoundPage />} />
           {/* <Route path="*" element={<Home />}/>        */}
         </Route>
         
