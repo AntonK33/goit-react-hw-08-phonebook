@@ -1,8 +1,8 @@
 import ContactList from "components/Pages/ContactList/ContactList";
 import Filter from "components/Filter/Filter";
 import { InputForm } from "components/InputForm/InputForm";
-import { getLoading, getError } from "redux/tasks/selectors";
-import { useDispatch, useSelector } from "react-redux";
+
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchUrl } from "redux/tasks/operations";
 
