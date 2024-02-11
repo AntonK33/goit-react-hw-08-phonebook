@@ -4,8 +4,6 @@ import css from "./LogIn.module.css"
 import { logIn } from "redux/auth/operations";
 import { Button, Text, Input,
 } from "@chakra-ui/react";
-import { selectIsLoggedIn } from "redux/auth/selectors";
-import { useSelector } from "react-redux";
 import { NotificationContainer, NotificationManager } from "react-notifications";
 import 'react-notifications/lib/notifications.css';
 
@@ -13,7 +11,7 @@ export const LogInForm = () => {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const isLoading = useSelector(selectIsLoggedIn);
+    
 
      const onInputHandler = (event) => {
         const { name, value } = event.target;
